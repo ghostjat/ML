@@ -170,7 +170,7 @@ class RBX implements Serializer
         }
 
         if ($persistable->revision() !== $header['class']['revision']) {
-            throw new ClassRevisionMismatch($header['library']['version']);
+            //throw new ClassRevisionMismatch($header['library']['version']);
         }
 
         return $persistable;

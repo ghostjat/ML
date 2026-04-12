@@ -502,20 +502,28 @@ class KMeans implements Estimator, Learner, Online, Probabilistic, Verbose, Pers
      */
     public function probaSample(array $sample) : array
     {
-        $distances = $dist = [];
+        $distances = [];
 
         foreach ($this->centroids as $centroid) {
             $distances[] = $this->kernel->compute($sample, $centroid) ?: EPSILON;
         }
 
-        foreach ($distances as $distanceA) {
-            $sigma = 0.0;
+        // Fuzzy membership: p_k = (1/d_k) / Σ_j (1/d_j)
+        // Precompute inverse distances and their sum → O(K) instead of O(K²).
+        $invSum = 0.0;
+        $invDistances = [];
 
-            foreach ($distances as $distanceB) {
-                $sigma += $distanceA / $distanceB;
-            }
+        foreach ($distances as $d) {
+            $inv = 1.0 / $d;
+            $invDistances[] = $inv;
+            $invSum += $inv;
+        }
 
-            $dist[] = 1.0 / $sigma;
+        $invTotal = 1.0 / $invSum;
+        $dist = [];
+
+        foreach ($invDistances as $inv) {
+            $dist[] = $inv * $invTotal;
         }
 
         return $dist;

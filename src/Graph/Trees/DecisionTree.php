@@ -248,33 +248,22 @@ abstract class DecisionTree implements BinaryTree, IteratorAggregate
     {
         $current = $this->root;
 
-        while ($current) {
-            if ($current instanceof Split) {
-                $value = $current->value();
+        while ($current instanceof Split) {
+            $value = $current->value();
+            $col   = $current->column();
 
-                if (is_string($value)) {
-                    if ($sample[$current->column()] === $value) {
-                        $current = $current->left();
-                    } else {
-                        $current = $current->right();
-                    }
-                } else {
-                    if ($sample[$current->column()] <= $value) {
-                        $current = $current->left();
-                    } else {
-                        $current = $current->right();
-                    }
-                }
-
-                continue;
-            }
-
-            if ($current instanceof Outcome) {
-                return $current;
+            if (is_string($value)) {
+                $current = $sample[$col] === $value
+                    ? $current->left()
+                    : $current->right();
+            } else {
+                $current = $sample[$col] <= $value
+                    ? $current->left()
+                    : $current->right();
             }
         }
 
-        return null;
+        return $current instanceof Outcome ? $current : null;
     }
 
     /**

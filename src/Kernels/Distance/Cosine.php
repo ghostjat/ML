@@ -48,14 +48,14 @@ class Cosine implements Distance
     public function compute(array $a, array $b) : float
     {
         $sigma = $ssA = $ssB = 0.0;
+        $n = count($a);
 
-        foreach ($a as $i => $valueA) {
-            $valueB = $b[$i];
-
-            $sigma += $valueA * $valueB;
-
-            $ssA += $valueA ** 2;
-            $ssB += $valueB ** 2;
+        for ($i = 0; $i < $n; ++$i) {
+            $va = $a[$i];
+            $vb = $b[$i];
+            $sigma += $va * $vb;
+            $ssA   += $va * $va;
+            $ssB   += $vb * $vb;
         }
 
         if ($ssA === 0.0 and $ssB === 0.0) {

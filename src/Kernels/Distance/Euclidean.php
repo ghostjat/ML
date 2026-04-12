@@ -42,9 +42,11 @@ class Euclidean implements Distance
     public function compute(array $a, array $b) : float
     {
         $distance = 0.0;
+        $n = count($a);
 
-        foreach ($a as $i => $value) {
-            $distance += ($value - $b[$i]) ** 2;
+        for ($i = 0; $i < $n; ++$i) {
+            $d = $a[$i] - $b[$i];
+            $distance += $d * $d;
         }
 
         return sqrt($distance);

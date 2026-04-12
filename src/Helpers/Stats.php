@@ -173,7 +173,8 @@ class Stats
         $ssd = 0.0;
 
         foreach ($values as $value) {
-            $ssd += ($value - $mean) ** 2;
+            $d = $value - $mean;
+            $ssd += $d * $d;
         }
 
         return $ssd / count($values);
@@ -272,8 +273,26 @@ class Stats
 
         $sigma = 0.0;
 
-        foreach ($values as $value) {
-            $sigma += ($value - $mean) ** $moment;
+        if ($moment === 2) {
+            foreach ($values as $value) {
+                $d = $value - $mean;
+                $sigma += $d * $d;
+            }
+        } elseif ($moment === 3) {
+            foreach ($values as $value) {
+                $d = $value - $mean;
+                $sigma += $d * $d * $d;
+            }
+        } elseif ($moment === 4) {
+            foreach ($values as $value) {
+                $d = $value - $mean;
+                $d2 = $d * $d;
+                $sigma += $d2 * $d2;
+            }
+        } else {
+            foreach ($values as $value) {
+                $sigma += ($value - $mean) ** $moment;
+            }
         }
 
         return $sigma / count($values);

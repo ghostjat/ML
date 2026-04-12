@@ -75,12 +75,15 @@ class Minkowski implements Distance
     public function compute(array $a, array $b) : float
     {
         $distance = 0.0;
+        $n = count($a);
+        $lambda  = $this->lambda;
+        $inverse = $this->inverse;
 
-        foreach ($a as $i => $value) {
-            $distance += abs($value - $b[$i]) ** $this->lambda;
+        for ($i = 0; $i < $n; ++$i) {
+            $distance += abs($a[$i] - $b[$i]) ** $lambda;
         }
 
-        return $distance ** $this->inverse;
+        return $distance ** $inverse;
     }
 
     /**

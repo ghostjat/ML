@@ -5,7 +5,7 @@
 A high-level machine learning and deep learning library for the [PHP](https://php.net) language.
 
 - **Developer-friendly** API is delightful to use
-- **40+** supervised and unsupervised learning algorithms
+- **50+** supervised and unsupervised learning algorithms
 - **Support** for ETL, preprocessing, and cross-validation
 - **Open source** and free to use commercially
 
@@ -33,7 +33,22 @@ composer require rubix/ml
 Read the latest docs [here](https://rubixml.github.io/ML/latest/).
 
 ## What is Rubix ML?
-Rubix ML is a free open-source machine learning (ML) library that allows you to build programs that learn from your data using the PHP language. We provide tools for the entire machine learning life cycle from ETL to training, cross-validation, and production with over 40 supervised and unsupervised learning algorithms. In addition, we provide tutorials and other educational content to help you get started using ML in your projects.
+Rubix ML is a free open-source machine learning (ML) library that allows you to build programs that learn from your data using the PHP language. We provide tools for the entire machine learning life cycle from ETL to training, cross-validation, and production with over 50 supervised and unsupervised learning algorithms. In addition, we provide tutorials and other educational content to help you get started using ML in your projects.
+
+## New in this Release
+The following algorithms have been added to bring Rubix ML closer to scikit-learn parity:
+
+| Algorithm | Type | Highlights |
+|-----------|------|------------|
+| [Elastic Net](docs/regressors/elastic-net.md) | Regressor | Combined L1 + L2 regularisation via coordinate descent |
+| [Gaussian Process Regressor](docs/regressors/gaussian-process-regressor.md) | Regressor | Bayesian non-parametric regression with posterior uncertainty |
+| [Factorization Machine](docs/regressors/factorization-machine.md) | Regressor | O(kn) pairwise feature interactions, online SGD |
+| [Hidden Markov Model](docs/classifiers/hidden-markov-model.md) | Classifier | Per-class Gaussian HMM, Baum-Welch EM training |
+| [Factorization Machine](docs/classifiers/factorization-machine.md) | Classifier | Probabilistic, multi-class, online SGD |
+| [Online SGD Classifier](docs/classifiers/online-sgd-classifier.md) | Classifier | AdaGrad, log / hinge / perceptron losses, streaming-safe |
+| [Hoeffding Tree Classifier](docs/classifiers/hoeffding-tree-classifier.md) | Classifier | VFDT — learns from infinite streams without storing data |
+| [Spectral Clustering](docs/clusterers/spectral-clustering.md) | Clusterer | Graph Laplacian eigenmap + K-Means, auto-detects non-convex clusters |
+| [UMAP](docs/transformers/umap.md) | Transformer | Fuzzy topological manifold embedding, faster and more structure-preserving than t-SNE |
 
 ## Getting Started
 If you are new to machine learning, we recommend taking a look at the [What is Machine Learning?](https://rubixml.github.io/ML/latest/what-is-machine-learning.html) section to get started. If you are already familiar with basic ML concepts, you can browse the [basic introduction](https://rubixml.github.io/ML/latest/basic-introduction.html) for a brief look at a typical Rubix ML project. From there, you can browse the official tutorials below which range from beginner to advanced skill level.

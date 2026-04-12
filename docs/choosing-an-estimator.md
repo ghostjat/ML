@@ -16,7 +16,10 @@ Classifiers are supervised learners that predict a categorical *class* label. Th
 | [AdaBoost](classifiers/adaboost.md) | High | ● | | | ● | Depends on base learner |
 | [Classification Tree](classifiers/classification-tree.md) | Medium | ● | | ● | | Categorical, Continuous |
 | [Extra Tree Classifier](classifiers/extra-tree-classifier.md) | Medium | ● | | ● | | Categorical, Continuous |
+| [Factorization Machine](classifiers/factorization-machine.md) | Medium | ● | ● | | ● | Continuous |
 | [Gaussian Naive Bayes](classifiers/gaussian-naive-bayes.md) | Medium | ● | ● | | | Continuous |
+| [Hidden Markov Model](classifiers/hidden-markov-model.md) | Medium | ● | | | ● | Continuous |
+| [Hoeffding Tree Classifier](classifiers/hoeffding-tree-classifier.md) | Medium | ● | ● | | ● | Continuous |
 | [K-d Neighbors](classifiers/kd-neighbors.md) | Medium | ● | | | | Depends on distance kernel |
 | [K Nearest Neighbors](classifiers/k-nearest-neighbors.md) | Medium | ● | ● | | | Depends on distance kernel |
 | [Logistic Regression](classifiers/logistic-regression.md) | Low | ● | ● | ● | ● | Continuous |
@@ -24,6 +27,7 @@ Classifiers are supervised learners that predict a categorical *class* label. Th
 | [Multilayer Perceptron](classifiers/multilayer-perceptron.md) | High | ● | ● | | ● | Continuous |
 | [Naive Bayes](classifiers/naive-bayes.md) | Medium | ● | ● | | | Categorical |
 | [One Vs Rest](classifiers/one-vs-rest.md) | Medium | ● | | | | Depends on base learner |
+| [Online SGD Classifier](classifiers/online-sgd-classifier.md) | Low | ● | ● | | ● | Continuous |
 | [Radius Neighbors](classifiers/radius-neighbors.md) | Medium | ● | | | | Depends on distance kernel |
 | [Random Forest](classifiers/random-forest.md) | High | ● | | ● | | Categorical, Continuous |
 | [Softmax Classifier](classifiers/softmax-classifier.md) | Low | ● | ● | | ● | Continuous |
@@ -35,12 +39,15 @@ Regressors are a type of supervised learner that predict a continuous-valued out
 | Name | Flexibility | [Online](online.md) | [Ranks Features](ranks-features.md) | [Verbose](verbose.md) | [Persistable](persistable.md) | Data Compatibility |
 |---|---|---|---|---|---|---|
 | [Adaline](regressors/adaline.md) | Low | ● | ● | ● | ● | Continuous |
+| [Elastic Net](regressors/elastic-net.md) | Low | | | ● | ● | Continuous |
 | [Extra Tree Regressor](regressors/extra-tree-regressor.md) | Medium | | ● | | ● | Categorical, Continuous |
+| [Factorization Machine](regressors/factorization-machine.md) | Medium | ● | | | ● | Continuous |
+| [Gaussian Process Regressor](regressors/gaussian-process-regressor.md) | High | | | | ● | Continuous |
 | [Gradient Boost](regressors/gradient-boost.md) | High | | ● | ● | ● | Categorical, Continuous |
 | [K-d Neighbors Regressor](regressors/kd-neighbors-regressor.md) | Medium | | | | ● | Depends on distance kernel |
 | [KNN Regressor](regressors/knn-regressor.md) | Medium | ● | | | ● | Depends on distance kernel |
 | [MLP Regressor](regressors/mlp-regressor.md) | High | ● | | ● | ● | Continuous |
-| [Radius Neighbors Regressor](regressors/radius-neighbors-regressor.md) | Medium | | | | ● | Depends on distance kernerl |
+| [Radius Neighbors Regressor](regressors/radius-neighbors-regressor.md) | Medium | | | | ● | Depends on distance kernel |
 | [Regression Tree](regressors/regression-tree.md) | Medium | | ● | | ● | Categorical, Continuous |
 | [Ridge](regressors/ridge.md) | Low | | ● | | ● | Continuous |
 | [SVR](regressors/svr.md) | High | | | | | Continuous |
@@ -55,6 +62,7 @@ Clusterers are unsupervised learners that predict an integer-valued cluster numb
 | [Gaussian Mixture](clusterers/gaussian-mixture.md) | Medium | ● | | ● | ● | Continuous |
 | [K Means](clusterers/k-means.md) | Low | ● | ● | ● | ● | Continuous |
 | [Mean Shift](clusterers/mean-shift.md) | Medium | ● | | ● | ● | Continuous |
+| [Spectral Clustering](clusterers/spectral-clustering.md) | High | | | | ● | Continuous |
 
 ## Anomaly Detectors
 Anomaly Detectors are unsupervised learners that predict whether a sample should be classified as an anomaly or not. We use the value `1` to indicate an outlier and `0` for a regular sample and the predictions can be cast to their boolean equivalent if needed. Anomaly detectors that implement the [Scoring](scoring.md) interface can output an anomaly score that can be used to sort the samples by their degree of anomalousness.
